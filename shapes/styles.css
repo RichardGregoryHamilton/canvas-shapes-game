@@ -1,0 +1,171 @@
+/* General HTML tags */
+
+body {
+  background: aquamarine;
+}
+
+main {
+  width: 50%;
+  margin: 0 auto;
+}
+
+table {
+  width: 70%;
+  margin: 5% auto;
+}
+
+tr {
+  border: 3px solid black;
+}
+
+td {
+  padding: 20px 15px;
+}
+
+svg {
+  height: 60px;
+  width: 60px;
+}
+
+/* Headings */
+
+#main-header {
+  margin-left: 13%;
+}
+
+#header-canvas {
+  color: darkblue;
+}
+
+#header-shapes {
+  color: chocolate;
+}
+
+#header-game {
+  color: maroon;
+}
+
+/* Canvas */
+
+#canvas-block {
+  border: 3px solid black;
+  height: 320px;
+  width: 500px;
+}
+
+#my-canvas {
+  height: 320px;
+  width: 500px;
+}
+
+/* Game Information */
+
+#level {
+  white-space: nowrap;           /* Place the level, score and high score on one line */
+}
+
+#score, #high-score {
+  margin-left: 5%;
+  font-weight: bold;
+}
+
+#controls {
+  margin: 30px 0;
+}
+
+#circle, #rectangle, #triangle, #pentagon, #hexagon, #star {
+  padding: 1% 2%;
+  font-weight: bold;
+  visibility: hidden;
+}
+
+#circle { background: orange; }
+#rectangle { background: orchid; }
+#triangle { background: darkgrey; }
+#pentagon { background: chartreuse; }
+#hexagon { background: maroon; }
+#star { background: gold; }
+
+/* How To Play */
+
+#help-block {
+  width: 50%;
+  margin: 5% auto;
+}
+
+#exp-rectangle, #exp-circle {
+  color: white;
+  width: 10%;
+  margin-bottom: 2%;
+}
+
+#exp-rectangle {
+  background: blue;
+  height: 8%;
+}
+
+#exp-circle {
+  background: orange;
+  border-radius: 50%;
+  height: 10%;
+}
+
+.shape-code {
+  margin-right: 5%;
+}
+
+/* Scores */
+
+.gold { background: gold; }
+.silver { background: silver; }
+.bronze { background: #8C7853; }
+
+#scores-table {
+  width: 50%;
+  margin: 3% auto;
+}
+
+#scores-header {
+  background: orange;
+  height: 60px;
+  text-indent: 2%;
+}
+
+/* Gets the last 2 rows of the scores table */
+#scores-table tr:nth-last-child(2), #scores-table tr:last-child {
+  background: green;
+}
+
+/* Achievements */
+
+#achievement-header {
+  color: gold;
+}
+
+#notification {
+  visibility: hidden;             /* This prevents the flashing effect */
+  min-height: 40px;
+  background: gold;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  padding: 10px 4px;
+  width: 74%;
+}
+
+.achievement-img {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+}
+
+.locked { background: #888888; }
+.unlocked { background: #FFCC00; }
+
+/* Frequently Asked Questions */
+
+.questions-block {
+  margin: 3% 20%;
+  background: olive;
+  padding: 2% 5%;
+}

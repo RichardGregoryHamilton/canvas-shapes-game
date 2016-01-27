@@ -1,0 +1,9 @@
+{
+  "firebase": "shapes-game",
+  "public": "shapes",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}

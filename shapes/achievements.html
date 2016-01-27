@@ -1,0 +1,140 @@
+<head>
+  <title>Achievements</title>
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'></link>
+  <link rel='stylesheet' href='styles.css'></link>
+</head>
+
+<body>
+  
+  <header id='my-header'>
+
+  </header>
+  
+  <h1 class='text-center'>
+    <span id='achievement-header'>Game Achievements</span>
+  </h1>
+  
+  <div class='achievements-table'>
+    <table>
+    
+      <tr>
+        <td class='level'><strong>Reach Level 1</strong></td>
+        <td>Play your first game</td>
+        
+        <td>
+          <svg>
+            <line x1="0" y1="0" x2="200" y2="200" style="stroke:rgb(255,0,0);stroke-width:2" />
+          </svg>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class='level'><strong>Reach Level 2</strong></td>
+        <td>Get a score of 10 or more</td>
+        <td>
+          <svg>
+            <circle cx="30" cy="30" r="28" stroke="green" stroke-width="4" fill="yellow" />
+          </svg>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class='level'><strong>Reach Level 3</strong></td>
+        <td>Get a score of 20 or more</td>
+        <td><img class='achievement-img' src='images/triangle.png' alt='number 3'></img></td>
+      </tr>
+      
+      <tr>
+        <td class='level'><strong>Reach Level 4</strong></td>
+        <td>Get a score of 30 or more</td>
+        <td>
+          <svg>
+            <rect width="300" height="100" style="fill:rgb(0,0,255);stroke-width:3;stroke:rgb(0,0,0)" />
+          </svg>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class='level'><strong>Reach Level 5</strong></td>
+        <td>Get a score of 40 or more</td>
+        <td>
+          <svg viewBox="-1 0 101 100">
+            <path d="M20,0 L80,0 L100,60 L50,100 L0,60z" stroke="black" fill="coral" />
+          </svg>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class='level'><strong>Reach Level 6</strong></td>
+        <td>Get a score of 50 or more</td>
+        <td>
+          <svg>
+            <polygon points="25,25 37,13 50,12 62,25 50,37 37,37" style="fill:orange; stroke-width:1" />
+          </svg>
+        </td>
+      </tr>
+      
+      <tr>
+        <td class='games-played'><strong>Novice</strong></td>
+        <td>Play 1 game</td>
+        <td><img class='achievement-img' src='images/novice.jpe' alt='novice'></img></td>
+      </tr>
+      
+      <tr>
+        <td class='games-played'><strong>Beginner</strong></td>
+        <td>Play 5 games</td>
+        <td><img class='achievement-img' src='images/beginner.jpg' alt='beginner'></img></td>
+      </tr>
+      
+      <tr>
+        <td class='games-played'><strong>Journeyman</strong></td>
+        <td>Play 10 games</td>
+        <td><img class='achievement-img' src='images/journeyman.png' alt='journeyman'></img></td>
+      </tr>
+      
+      <tr>
+        <td class='games-played'><strong>Master</strong></td>
+        <td>Play 20 games</td>
+        <td><img class='achievement-img' src='images/master.jpe' alt='master'></img></td>
+      </tr>
+      
+      <tr>
+        <td class='games-played'><strong>Grand Master</strong></td>
+        <td>Play 30 games</td>
+        <td><img class='achievement-img' src='images/grandmaster.jpg' alt='grandmaster'></img></td>
+      </tr>
+      
+      <tr>
+        <td class='total-score'><strong>Score 100</strong></td>
+        <td>Reach a cumulative score of 100</td>
+        <td><img class='achievement-img' src='images/score100.png' alt='score 100'></img></td>
+      </tr>
+      
+      <tr>
+        <td class='total-score'><strong>Score 200</strong></td>
+        <td>Reach a cumulative score of 200</td>
+        <td><img class='achievement-img' src='images/score200.png' alt='score 200'></img></td>
+      </tr>
+      
+      <tr>
+        <td class='total-score'><strong>Score 500</strong></td>
+        <td>Reach a cumulative score of 500</td>
+        <td><img class='achievement-img' src='images/score500.jpg' alt='score 500'></img></td>
+      </tr>
+      
+      <tr>
+        <td class='total-score'><strong>Score 1000</strong></td>
+        <td>Reach a cumulative score of 1000</td>
+        <td><img class='achievement-img' src='images/score1000.jpe' alt='score 1000'></img></td>
+      </tr>
+      
+    </table>
+  </div>
+  
+  <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
+  <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>
+  <script src='scripts/scores.js'></script>
+  <script src='scripts/achievements.js'></script>
+  
+</body>
