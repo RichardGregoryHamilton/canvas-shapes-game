@@ -1,5 +1,7 @@
 # canvas-shapes-game
-A game written for HTML5 Canvas based on selecting shapes 
+This is an arcade game created with HTML5 Canvas based on selecting shapes.
+
+Link: https://shapes-game.firebaseapp.com
 
 # How to play
 * Shapes are randomly displayed on an HTML5 canvas board. Either a circle or a rectangle will be displayed.
@@ -8,4 +10,6 @@ A game written for HTML5 Canvas based on selecting shapes
 * This might seem easy, but as you level up, you get less and less time to select an answer
 * Also, shapes are given randomly selected colors. This might confuse you.
 
-This game can be played at https://jsfiddle.net/j8sf40r4/
+# Coins
+
+Coins are earned through good game play. They can be used to purchase new items in the shop. For every five points you score in a game, you are awarded 1 coin.
