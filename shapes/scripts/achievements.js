@@ -1,6 +1,7 @@
 /* This JavaScript file is for dealing with achievements */
 
 $('#my-header').load('header.html');
+$('#my-footer').load('footer.html');
 
 var levelAchievements = [];
 var scoreAchievements = [];

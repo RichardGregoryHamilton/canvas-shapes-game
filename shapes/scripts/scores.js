@@ -2,6 +2,7 @@
 /* This JavaScript file deals with all score logic */
 
 $('#my-header').load('header.html');
+$('#my-footer').load('footer.html');
 
 var displayLevel = document.getElementById('level');
 var score = 0;
@@ -15,9 +16,11 @@ var sorted = oldScores.sort(function(scoreA, scoreB) {
 });
 
 function displayScore() {
+    var currentCoins = Number(localStorage['shapesCoins']);
     displayLevel.innerHTML = "<strong>Level: </strong>" + level + 
                              "<span id='score'>Score: " + score + "</span>" +
-                             "<span id='high-score'>High Score: " + highScore() + "</span>"
+                             "<span id='high-score'>High Score: " + highScore() + "</span>" +
+                             "<span id='coins'>Coins: " + "<span class='coins-badge'>" + currentCoins + "</span></span";
 }
 
 // When score increases, a check is performed to see if you can level up
@@ -73,6 +76,7 @@ function addScores() {
 
 function resetScore() {
     addScores();
+    addCoins();
     score = 0;
     displayScore();
 }

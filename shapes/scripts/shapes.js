@@ -1,9 +1,11 @@
 $('#my-header').load('header.html');
+$('#my-footer').load('footer.html');
 
 var shapes = [];
+var playing = false;
 
 function checkStorage(key) {
-    if(!localStorage[key]) {
+    if (!localStorage[key]) {
         localStorage[key] = JSON.stringify([]);
     }
 }
@@ -19,13 +21,17 @@ if (!localStorage['shapesTotalScore']) {
     localStorage['shapesTotalScore'] = 0;
 }
 
+if (!localStorage['shapesCoins']) {
+    localStorage['shapesCoins'] = 0;
+}
+
 // Create a new canvas element and append to the DOM
 function createCanvas() {
-    $('#canvas-block').append("<canvas class='my-canvas'></canvas>");
+    $('#canvas-block').append('<canvas></canvas>');
 }
 
 function readyCanvas() {
-    canvas = $('.my-canvas')[0];
+    canvas = $('canvas')[0];
     ctx = canvas.getContext('2d');
     width = canvas.width;
     height = canvas.height;
@@ -46,12 +52,12 @@ function fillShape(shape) {
 // There are different context functions for circles and rectangles.
 function generateCircle() {
     ctx.beginPath();
-    ctx.arc(width / 2, height / 2, 50, 0, 2 * Math.PI);
+    ctx.arc(150, 80, 30, 0, 2 * Math.PI);
     fillShape('circle');
 }
 
 function generateRectangle() {
-    ctx.rect(width / 2, height / 2, 100, 160);
+    ctx.rect(100, 50, 100, 60);
     fillShape('rectangle');
 }
 
@@ -67,25 +73,25 @@ function generateTriangle() {
 
 function generatePentagon() {
     ctx.beginPath();
-    ctx.moveTo(100, 100);
-    ctx.lineTo(150, 50);
-    ctx.lineTo(200, 100);
-    ctx.lineTo(200, 150);
-    ctx.lineTo(100, 150);
-    ctx.lineTo(100, 100);
+    ctx.moveTo(120, 70);
+    ctx.lineTo(150, 30);
+    ctx.lineTo(180, 70);
+    ctx.lineTo(180, 110);
+    ctx.lineTo(120, 110);
+    ctx.lineTo(120, 70);
     fillShape('pentagon');
     ctx.closePath();
 }
 
 function generateHexagon() {
     ctx.beginPath();
-    ctx.moveTo(100, 100);
-    ctx.lineTo(150, 50);
-    ctx.lineTo(200, 50);
-    ctx.lineTo(250, 100);
-    ctx.lineTo(200, 150);
-    ctx.lineTo(150, 150);
-    ctx.lineTo(100, 100);
+    ctx.moveTo(100, 80);
+    ctx.lineTo(130, 50);
+    ctx.lineTo(160, 50);
+    ctx.lineTo(190, 80);
+    ctx.lineTo(160, 110);
+    ctx.lineTo(130, 110);
+    ctx.lineTo(100, 80);
     fillShape('hexagon');
     ctx.closePath();
 }
@@ -93,13 +99,13 @@ function generateHexagon() {
 function generateStar() {
     ctx.beginPath();
     ctx.moveTo(150, 60);
-    ctx.lineTo(170, 10);
-    ctx.lineTo(190, 60);
-    ctx.lineTo(240, 80);
-    ctx.lineTo(190, 100);
-    ctx.lineTo(170, 150);
-    ctx.lineTo(150, 100);
-    ctx.lineTo(100, 80);
+    ctx.lineTo(160, 20);
+    ctx.lineTo(170, 60);
+    ctx.lineTo(210, 70);
+    ctx.lineTo(170, 80);
+    ctx.lineTo(160, 120);
+    ctx.lineTo(150, 80);
+    ctx.lineTo(110, 70);
     ctx.lineTo(150, 60);
     fillShape('star');
     ctx.closePath();
@@ -116,6 +122,12 @@ function selectShape(shape) {
     shapes.slice(-1) == shape ? rightAnswer() : gameOver();
 }
 
+function addCoins() {
+    var currentCoins = Number(localStorage['shapesCoins']);
+    var coinsEarned = Math.floor(score / 5);
+    localStorage['shapesCoins'] = currentCoins > 0 ? currentCoins + coinsEarned: coinsEarned;
+}
+
 // Game over has its own specialty canvas
 function gameOver() {
     clearCanvas();
@@ -123,14 +135,25 @@ function gameOver() {
     readyCanvas();
     endMessage();
     resetScore();
+    playing = false;
 }
 
 function endMessage() {
-    ctx.font = '30px Arial';
-    ctx.fillText('Game Over', 140, 50);
+    ctx.font = '25px Arial';
+    var gradient = ctx.createLinearGradient(80, 50, 200, 0);
+    gradient.addColorStop('0', 'magenta');
+    gradient.addColorStop('0.5', 'blue');
+    gradient.addColorStop('1.0', 'red');
+    ctx.fillStyle = gradient;
+    ctx.fillText('Game Over', 80, 30);
+    
+    ctx.fillStyle = 'green';
     ctx.font = '15px Arial';
-    ctx.fillText('You scored ' + score + ' points', 140, 100);
-    ctx.fillText('You reached level ' + level, 140, 120);
+    ctx.fillText('STATISTICS', 80, 70);
+    ctx.fillStyle = 'black';
+    ctx.fillText('You scored ' + score + ' points', 80, 90);
+    ctx.fillText('You reached level ' + level, 80, 110);
+    ctx.fillText("You've earned " + Math.floor(score / 5) + " coins", 80, 130);
 }
 
 // As you level up, the time you have to select an answer decreases
@@ -159,29 +182,24 @@ function startGame() {
     if ($('#canvas-block').children.length > 0) {
         clearCanvas();
     }
+    playing = true;
     localStorage['shapesGamesPlayed']++;
-    $("#circle, #rectangle").css({ 'visibility': 'visible' });
+    $('#circle, #rectangle').css({ 'visibility': 'visible' });
     gameLoop();
     displayScore();
 }
 
+var controls = { 67: 'circle',
+                 82: 'rectangle',
+                 84: 'triangle', 
+                 80: 'pentagon',
+                 72: 'hexagon',
+                 83: 'star' };
+        
 $(document).on('keydown', function(event) {
-    if (event.keyCode == 67) {
-        selectShape('circle');
-    }
-    else if (event.keyCode == 82) {
-        selectShape('rectangle');
-    }
-    else if (event.keyCode == 84) {
-        selectShape('triangle');
-    }
-    else if (event.keyCode == 80) {
-        selectShape('pentagon');
-    }
-    else if (event.keyCode == 72) {
-        selectShape('hexagon');
-    }
-    else if (event.keyCode == 83) {
-        selectShape('star');
+    if (playing) {
+        if (Object.keys(controls).indexOf(String(event.keyCode)) != -1) {
+            selectShape(controls[event.keyCode]);
+        }
     }
 });

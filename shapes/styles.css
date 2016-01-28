@@ -22,9 +22,42 @@ td {
   padding: 20px 15px;
 }
 
+canvas {
+  width: 100%;
+  height: 100%;
+  background: beige;
+}
+
 svg {
   height: 60px;
   width: 60px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  background: black;
+  color: white;
+  width: 100%;
+  padding: 0.5% 5%;
+}
+
+footer a {
+  text-decoration: none;
+  color: white;
+}
+
+footer a:hover {
+  text-decoration: none;
+  color: white;
+}
+
+#copyright {
+  margin-left: 30%;
+}
+
+#footer-links {
+  float: right;
 }
 
 /* Headings */
@@ -33,28 +66,15 @@ svg {
   margin-left: 13%;
 }
 
-#header-canvas {
-  color: darkblue;
-}
-
-#header-shapes {
-  color: chocolate;
-}
-
-#header-game {
-  color: maroon;
-}
+.header-canvas { color: darkblue; }
+.header-shapes { color: chocolate; }
+.header-game { color: maroon; }
 
 /* Canvas */
 
 #canvas-block {
   border: 3px solid black;
-  height: 320px;
-  width: 500px;
-}
-
-#my-canvas {
-  height: 320px;
+  height: 300px;
   width: 500px;
 }
 
@@ -69,8 +89,19 @@ svg {
   font-weight: bold;
 }
 
+#coins {
+  margin-left: 22%;
+  font-weight: bold;
+}
+
+.coins-badge {
+  padding: 2px 5px;
+  background: gold;
+  border-radius: 50%;
+}
+
 #controls {
-  margin: 30px 0;
+  margin: 2% 0;
 }
 
 #circle, #rectangle, #triangle, #pentagon, #hexagon, #star {
@@ -116,9 +147,9 @@ svg {
 
 /* Scores */
 
-.gold { background: gold; }
-.silver { background: silver; }
-.bronze { background: #8C7853; }
+h1#high-scores {
+  color: goldenrod;
+}
 
 #scores-table {
   width: 50%;
@@ -131,6 +162,10 @@ svg {
   text-indent: 2%;
 }
 
+.gold { background: gold; }
+.silver { background: silver; }
+.bronze { background: #8C7853; }
+
 /* Gets the last 2 rows of the scores table */
 #scores-table tr:nth-last-child(2), #scores-table tr:last-child {
   background: green;
@@ -140,6 +175,10 @@ svg {
 
 #achievement-header {
   color: gold;
+}
+
+#achievement-header:hover {
+  color: goldenrod;
 }
 
 #notification {
@@ -160,12 +199,41 @@ svg {
 }
 
 .locked { background: #888888; }
+.locked:hover { background: dimgray; }
 .unlocked { background: #FFCC00; }
+.unlocked:hover { background: goldenrod; }
 
 /* Frequently Asked Questions */
 
+#header-frequently { color: coral; }
+#header-asked { color: darkblue; }
+#header-questions { color: chocolate; }
+
 .questions-block {
   margin: 3% 20%;
-  background: olive;
+  background: burlywood;
   padding: 2% 5%;
+  border: 3px solid purple;
 }
+
+.question { color: azure; }
+
+/* Shop */
+
+#shop-table th{
+  text-indent: 2%;
+  padding: 2% 0;
+}
+
+/* Related */
+
+.game-section {
+  width: 50%;
+  margin: 0 auto;
+}
+
+#fun { color: red; }
+#math { color:darkorange; }
+#game { color: gold; }
+#snake { color: magenta; }
+#online { color: chartreuse; }
