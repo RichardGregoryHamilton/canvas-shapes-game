@@ -1,6 +1,10 @@
 $('#my-header').load('header.html');
 $('#my-footer').load('footer.html');
 
+setTimeout(function() {
+    $('#coins-display .coins-badge').html(localStorage['shapesCoins']);
+}, 100);
+
 var shapes = [];
 var playing = false;
 
@@ -12,6 +16,7 @@ function checkStorage(key) {
 
 checkStorage('shapesAchievements');
 checkStorage('shapeScores');
+checkStorage('shapePurchases');
 
 if (!localStorage['shapesGamesPlayed']) {
     localStorage['shapesGamesPlayed'] = 0;
@@ -46,7 +51,7 @@ function randColor() {
 function fillShape(shape) {
     ctx.fillStyle = randColor();
     ctx.fill();
-    shapes.push(shape);
+    shapes[0] = shape;
 }
 
 // There are different context functions for circles and rectangles.
@@ -119,13 +124,14 @@ function rightAnswer() {
 
 //These selectShape() functions are called when their respective buttons are clicked
 function selectShape(shape) {
-    shapes.slice(-1) == shape ? rightAnswer() : gameOver();
+    shapes[0] == shape ? rightAnswer() : gameOver();
 }
 
 function addCoins() {
     var currentCoins = Number(localStorage['shapesCoins']);
     var coinsEarned = Math.floor(score / 5);
     localStorage['shapesCoins'] = currentCoins > 0 ? currentCoins + coinsEarned: coinsEarned;
+    $('#coins-display .coins-badge').html(localStorage['shapesCoins']);
 }
 
 // Game over has its own specialty canvas
@@ -200,6 +206,7 @@ $(document).on('keydown', function(event) {
     if (playing) {
         if (Object.keys(controls).indexOf(String(event.keyCode)) != -1) {
             selectShape(controls[event.keyCode]);
+			console.log('keycode' + controls[event.keyCode]);
         }
     }
 });

@@ -3,6 +3,10 @@
 $('#my-header').load('header.html');
 $('#my-footer').load('footer.html');
 
+setTimeout(function() {
+    $('#coins-display .coins-badge').html(localStorage['shapesCoins']);
+}, 100);
+
 var levelAchievements = [];
 var scoreAchievements = [];
 var gamesPlayed = Number(localStorage['shapesGamesPlayed']);
